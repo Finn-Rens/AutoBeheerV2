@@ -1,0 +1,15 @@
+﻿<Window x:Class="AutoBeheerV2.EigenarenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutoBeheerV2"
+        mc:Ignorable="d"
+        Title="Eigenaren" Height="450" Width="800">
+    <DataGrid x:Name="dgEigenaar" HorizontalAlignment="Left" Height="306" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" AutoGenerateColumns="False">
+        <DataGrid.Columns>
+            <DataGridTextColumn Binding="{Binding Id}" ClipboardContentBinding="{x:Null}" Header="Id"/>
+            <DataGridTextColumn Binding="{Binding Naam}" ClipboardContentBinding="{x:Null}" Header="Naam"/>
+        </DataGrid.Columns>
+    </DataGrid>
+</Window>
