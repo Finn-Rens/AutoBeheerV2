@@ -20,11 +20,16 @@ namespace AutoBeheerV2
     /// </summary>
     public partial class MainWindow : Window
     {
+        private AutoControlleer autoControlleer;
+
         public MainWindow()
         {
             InitializeComponent();
 
-            var eigenaarController = new EigenaarController();
+            autoControlleer = new AutoControlleer();
+
+            dgAutos.ItemsSource = autoControlleer.Autos;
+            
         }
 
         private void btnEigenaren_Click(object sender, RoutedEventArgs e)

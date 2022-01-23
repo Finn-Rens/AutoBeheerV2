@@ -90,6 +90,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AutoBeheer.dbml</DependentUpon>
     </Compile>
+    <Compile Include="AutoControlleer.cs" />
     <Compile Include="EigenaarController.cs" />
     <Compile Include="EigenarenWindow.xaml.cs">
       <DependentUpon>EigenarenWindow.xaml</DependentUpon>
