@@ -73,6 +73,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="EigenaarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EigenarenWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -92,6 +96,9 @@
     </Compile>
     <Compile Include="AutoControlleer.cs" />
     <Compile Include="EigenaarController.cs" />
+    <Compile Include="EigenaarWindow.xaml.cs">
+      <DependentUpon>EigenaarWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EigenarenWindow.xaml.cs">
       <DependentUpon>EigenarenWindow.xaml</DependentUpon>
     </Compile>
@@ -136,10 +143,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DataBase\AutoBeheer.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="DataBase\AutoBeheer_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>AutoBeheer.mdf</DependentUpon>
     </Content>
   </ItemGroup>

@@ -18,6 +18,26 @@ namespace AutoBeheerV2
             db = new AutoBeheerDataContext();
 
             Eigenaars = new ObservableCollection<Eigenaar>(db.Eigenaars);
+
+        }
+
+        public void NieuwEigenaar(Eigenaar eigenaar) 
+        {
+            //try
+            //{
+                if (eigenaar != null)
+                {
+                    db.Eigenaars.InsertOnSubmit(eigenaar);
+
+                    db.SubmitChanges();
+
+                    Eigenaars.Add(eigenaar);
+                }
+            //}
+            //catch (Exception exception)
+            //{
+            //    throw;
+            //}
         }
     }
 }

@@ -6,10 +6,13 @@
         xmlns:local="clr-namespace:AutoBeheerV2"
         mc:Ignorable="d"
         Title="Eigenaren" Height="450" Width="800">
-    <DataGrid x:Name="dgEigenaar" HorizontalAlignment="Left" Height="306" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" AutoGenerateColumns="False">
-        <DataGrid.Columns>
-            <DataGridTextColumn Binding="{Binding Id}" ClipboardContentBinding="{x:Null}" Header="Id"/>
-            <DataGridTextColumn Binding="{Binding Naam}" ClipboardContentBinding="{x:Null}" Header="Naam"/>
-        </DataGrid.Columns>
-    </DataGrid>
+    <Grid>
+        <DataGrid x:Name="dgEigenaar" HorizontalAlignment="Left" Height="306" Margin="10,10,0,0" VerticalAlignment="Top" Width="417" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" ClipboardContentBinding="{x:Null}" Header="Id"/>
+                <DataGridTextColumn Binding="{Binding Naam}" ClipboardContentBinding="{x:Null}" Header="Naam"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnNieuwEigenaar" Content="NieuwEigenaar" HorizontalAlignment="Left" Margin="588,94,0,0" VerticalAlignment="Top" Width="107" Click="btnNieuwEigenaar_Click"/>
+    </Grid>
 </Window>

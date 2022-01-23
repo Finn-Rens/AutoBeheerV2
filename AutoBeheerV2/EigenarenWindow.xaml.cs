@@ -29,5 +29,16 @@ namespace AutoBeheerV2
             dgEigenaar.ItemsSource = eigenaarController.Eigenaars;
 
         }
+
+        private void btnNieuwEigenaar_Click(object sender, RoutedEventArgs e)
+        {
+            Eigenaar eigenaar = new Eigenaar();
+
+            eigenaar.Naam = "<invullen>";
+
+            EigenaarWindow eigenaarWindow = new EigenaarWindow(eigenaarController, eigenaar);
+
+            eigenaarWindow.ShowDialog();
+        }
     }
 }
