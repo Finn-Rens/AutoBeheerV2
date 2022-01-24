@@ -40,5 +40,24 @@ namespace AutoBeheerV2
 
             eigenaarWindow.ShowDialog();
         }
+
+        private void btnEigenaarVerwijderen_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgEigenaar.SelectedItem != null)
+            {
+                eigenaarController.VerwijderenEigenaar((Eigenaar)dgEigenaar.SelectedItem);
+            }
+        }
+
+        private void btnWijzigen_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgEigenaar.SelectedItem != null)
+            {
+                EigenaarWindow eigenaarWindow = new EigenaarWindow(eigenaarController, (Eigenaar)dgEigenaar.SelectedItem);
+
+                eigenaarWindow.ShowDialog();
+            }
+
+        }
     }
 }

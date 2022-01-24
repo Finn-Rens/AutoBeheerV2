@@ -47,6 +47,10 @@ namespace AutoBeheerV2
                 {
                     _eigenaarController.NieuwEigenaar(_eigenaar);
                 }
+                else 
+                {
+                    _eigenaarController.WijzigenEigenaar(_eigenaar);
+                }
             }
             catch (Exception exception)
             {

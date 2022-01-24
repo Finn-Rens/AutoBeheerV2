@@ -39,5 +39,25 @@ namespace AutoBeheerV2
             //    throw;
             //}
         }
+
+        public void VerwijderenEigenaar(Eigenaar eigenaar) 
+        {
+            if (eigenaar != null) 
+            {
+                db.Eigenaars.DeleteOnSubmit(eigenaar);
+
+                db.SubmitChanges();
+
+                Eigenaars.Remove(eigenaar);
+            }
+        }
+
+        public void WijzigenEigenaar(Eigenaar eigenaar) 
+        {
+            if (eigenaar != null) 
+            {
+                db.SubmitChanges();
+            }
+        }
     }
 }

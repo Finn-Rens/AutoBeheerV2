@@ -14,5 +14,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btnNieuwEigenaar" Content="NieuwEigenaar" HorizontalAlignment="Left" Margin="588,94,0,0" VerticalAlignment="Top" Width="107" Click="btnNieuwEigenaar_Click"/>
+        <Button x:Name="btnEigenaarVerwijderen" Content="Verijwderen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Margin="588,134,0,0" Click="btnEigenaarVerwijderen_Click"/>
+        <Button x:Name="btnWijzigen" Content="Wijzigen" HorizontalAlignment="Left" Margin="588,177,0,0" VerticalAlignment="Top" Width="107" Click="btnWijzigen_Click"/>
     </Grid>
 </Window>
