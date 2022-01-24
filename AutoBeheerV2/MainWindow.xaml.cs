@@ -22,11 +22,15 @@ namespace AutoBeheerV2
     {
         private AutoControlleer autoControlleer;
 
+        private EigenaarController eigenaarController;
+
         public MainWindow()
         {
             InitializeComponent();
 
             autoControlleer = new AutoControlleer();
+
+            eigenaarController = new EigenaarController();
 
             dgAutos.ItemsSource = autoControlleer.Autos;
             
@@ -37,6 +41,35 @@ namespace AutoBeheerV2
             EigenarenWindow eigenarenWindow = new EigenarenWindow();
 
             eigenarenWindow.ShowDialog();
+        }
+
+        private void btnWijzigen_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgAutos.SelectedItem != null) 
+            {
+                AutosWindow autosWindow = new AutosWindow(autoControlleer, eigenaarController, (Auto)dgAutos.SelectedItem);
+
+                autosWindow.ShowDialog();
+            }
+        }
+
+        private void btnNieuwAuto_Click(object sender, RoutedEventArgs e)
+        {
+            Auto auto = new Auto();
+
+            Eigenaar eigenaar = new Eigenaar();
+           
+            AutosWindow autosWindow = new AutosWindow(autoControlleer, eigenaarController, auto);
+
+            autosWindow.ShowDialog();
+        }
+
+        private void btnVerwijderen_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgAutos.SelectedItem != null) 
+            {
+                autoControlleer.VerwijderAuto((Auto)dgAutos.SelectedItem);
+            }
         }
     }
 }

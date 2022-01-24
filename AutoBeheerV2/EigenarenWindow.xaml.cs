@@ -34,8 +34,6 @@ namespace AutoBeheerV2
         {
             Eigenaar eigenaar = new Eigenaar();
 
-            eigenaar.Naam = "<invullen>";
-
             EigenaarWindow eigenaarWindow = new EigenaarWindow(eigenaarController, eigenaar);
 
             eigenaarWindow.ShowDialog();

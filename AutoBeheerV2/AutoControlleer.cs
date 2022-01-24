@@ -19,5 +19,37 @@ namespace AutoBeheerV2
             Autos = new ObservableCollection<Auto>(db.Autos);            
         }
 
+        public void NieuwAuto(Auto auto) 
+        {
+            if (auto != null) 
+            {
+                db.Autos.InsertOnSubmit(auto);
+
+                db.SubmitChanges();
+
+                Autos.Add(auto);
+            }
+        }
+
+        public void VerwijderAuto(Auto auto) 
+        {
+            if (auto != null) 
+            {
+                db.Autos.DeleteOnSubmit(auto);
+
+                db.SubmitChanges();
+
+                Autos.Remove(auto);
+            }
+        }
+
+        public void WijzigenAuto(Auto auto) 
+        {
+            if (auto != null) 
+            {
+                db.SubmitChanges();
+            }
+        }
+
     }
 }

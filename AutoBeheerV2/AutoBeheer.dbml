@@ -18,4 +18,12 @@
       <Association Name="Eigenaar_Auto" Member="Autos" ThisKey="Id" OtherKey="EigenaarId" Type="Auto" />
     </Type>
   </Table>
+  <Table Name="dbo.Gebruiker" Member="Gebruikers">
+    <Type Name="Gebruiker">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Naam" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Admin" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Wachtwoord" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
 </Database>

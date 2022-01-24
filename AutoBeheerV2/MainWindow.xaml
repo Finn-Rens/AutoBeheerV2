@@ -7,8 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btnEigenaren" Content="Eigenaren" HorizontalAlignment="Left" Margin="596,79,0,0" VerticalAlignment="Top" Width="75" Click="btnEigenaren_Click"/>
-        <DataGrid x:Name="dgAutos" HorizontalAlignment="Left" Height="401" Margin="10,10,0,0" VerticalAlignment="Top" Width="447" AutoGenerateColumns="False">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="28*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btnEigenaren" Content="Eigenaren" HorizontalAlignment="Left" Margin="476,79,0,0" VerticalAlignment="Top" Width="75" Click="btnEigenaren_Click" Grid.Column="1"/>
+        <DataGrid x:Name="dgAutos" HorizontalAlignment="Left" Height="401" Margin="10,10,0,0" VerticalAlignment="Top" Width="447" AutoGenerateColumns="False" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" ClipboardContentBinding="{x:Null}" Header="Id"/>
                 <DataGridTextColumn Binding="{Binding Kenteken}" ClipboardContentBinding="{x:Null}" Header="Kenteken"/>
@@ -18,6 +22,9 @@
                 <DataGridTextColumn Binding="{Binding Eigenaar.Naam}" ClipboardContentBinding="{x:Null}" Header="Eigenaar"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="btnVerwijderen" Content="Verwijderen" HorizontalAlignment="Left" Margin="476,188,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="btnVerwijderen_Click"/>
+        <Button x:Name="btnWijzigen" Content="WIjzigen" HorizontalAlignment="Left" Margin="476,153,0,0" VerticalAlignment="Top" Width="75" Click="btnWijzigen_Click" Grid.Column="1"/>
+        <Button x:Name="btnNieuwAuto" Content="Nieuw" Grid.Column="1" HorizontalAlignment="Left" Margin="476,117,0,0" VerticalAlignment="Top" Width="75" Click="btnNieuwAuto_Click"/>
 
     </Grid>
 </Window>

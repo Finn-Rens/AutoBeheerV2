@@ -73,6 +73,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AutosWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EigenaarWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -95,6 +99,9 @@
       <DependentUpon>AutoBeheer.dbml</DependentUpon>
     </Compile>
     <Compile Include="AutoControlleer.cs" />
+    <Compile Include="AutosWindow.xaml.cs">
+      <DependentUpon>AutosWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EigenaarController.cs" />
     <Compile Include="EigenaarWindow.xaml.cs">
       <DependentUpon>EigenaarWindow.xaml</DependentUpon>
