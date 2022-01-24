@@ -36,6 +36,9 @@ namespace AutoBeheerV2
     partial void InsertEigenaar(Eigenaar instance);
     partial void UpdateEigenaar(Eigenaar instance);
     partial void DeleteEigenaar(Eigenaar instance);
+    partial void InsertGebruiker(Gebruiker instance);
+    partial void UpdateGebruiker(Gebruiker instance);
+    partial void DeleteGebruiker(Gebruiker instance);
     #endregion
 		
 		public AutoBeheerDataContext() : 
@@ -81,6 +84,14 @@ namespace AutoBeheerV2
 			get
 			{
 				return this.GetTable<Eigenaar>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Gebruiker> Gebruikers
+		{
+			get
+			{
+				return this.GetTable<Gebruiker>();
 			}
 		}
 	}
@@ -419,6 +430,140 @@ namespace AutoBeheerV2
 		{
 			this.SendPropertyChanging();
 			entity.Eigenaar = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Gebruiker")]
+	public partial class Gebruiker : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Naam;
+		
+		private bool _Admin;
+		
+		private string _Wachtwoord;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNaamChanging(string value);
+    partial void OnNaamChanged();
+    partial void OnAdminChanging(bool value);
+    partial void OnAdminChanged();
+    partial void OnWachtwoordChanging(string value);
+    partial void OnWachtwoordChanged();
+    #endregion
+		
+		public Gebruiker()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Naam", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Naam
+		{
+			get
+			{
+				return this._Naam;
+			}
+			set
+			{
+				if ((this._Naam != value))
+				{
+					this.OnNaamChanging(value);
+					this.SendPropertyChanging();
+					this._Naam = value;
+					this.SendPropertyChanged("Naam");
+					this.OnNaamChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Admin", DbType="Bit NOT NULL")]
+		public bool Admin
+		{
+			get
+			{
+				return this._Admin;
+			}
+			set
+			{
+				if ((this._Admin != value))
+				{
+					this.OnAdminChanging(value);
+					this.SendPropertyChanging();
+					this._Admin = value;
+					this.SendPropertyChanged("Admin");
+					this.OnAdminChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Wachtwoord", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Wachtwoord
+		{
+			get
+			{
+				return this._Wachtwoord;
+			}
+			set
+			{
+				if ((this._Wachtwoord != value))
+				{
+					this.OnWachtwoordChanging(value);
+					this.SendPropertyChanging();
+					this._Wachtwoord = value;
+					this.SendPropertyChanged("Wachtwoord");
+					this.OnWachtwoordChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

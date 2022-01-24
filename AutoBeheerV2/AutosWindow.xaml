@@ -6,18 +6,35 @@
         xmlns:local="clr-namespace:AutoBeheerV2"
         mc:Ignorable="d"
         Title="AutosWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <!--<Window.Resources>
+        <local:DecimalToTextConverter x:Key="prijsConverter"/>
+    </Window.Resources>-->
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="76,63,0,0" TextWrapping="Wrap" Text="Kenteken" VerticalAlignment="Top" Height="21" Width="62" FontSize="15"/>
         <TextBlock HorizontalAlignment="Left" Margin="76,101,0,0" TextWrapping="Wrap" Text="Prijs" VerticalAlignment="Top" Height="21" Width="62" FontSize="15"/>
         <TextBlock HorizontalAlignment="Left" Margin="76,141,0,0" TextWrapping="Wrap" Text="Merk" VerticalAlignment="Top" Height="21" Width="62" FontSize="15"/>
         <TextBlock HorizontalAlignment="Left" Margin="76,178,0,0" TextWrapping="Wrap" Text="Bouwjaar" VerticalAlignment="Top" Height="21" Width="62" FontSize="15"/>
-        <TextBox x:Name="txtKenteken" Text="{Binding Kenteken}" HorizontalAlignment="Left" Height="23" Margin="176,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133"/>
-        <TextBox x:Name="txtPrijs" Text="{Binding Prijs}" HorizontalAlignment="Left" Height="23" Margin="176,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133"/>
+        <TextBox x:Name="txtKenteken" Text="{Binding Kenteken}"  HorizontalAlignment="Left" Height="23" Margin="176,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133"/>
+        <TextBox x:Name="txtPrijs" Validation.Error="txtPrijs_Error" HorizontalAlignment="Left" Height="23" Margin="176,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133">
+            <TextBox.Text>
+                <Binding Path="Prijs" 
+                         UpdateSourceTrigger="LostFocus" 
+                         ValidatesOnDataErrors="True" 
+                         NotifyOnValidationError="True">
+                    <Binding.Converter>
+                        <local:DecimalToTextConverter/>
+                    </Binding.Converter>
+                    <Binding.ValidationRules>
+                        <local:DecimalValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
         <TextBox x:Name="txtMerk" Text="{Binding Merk}" HorizontalAlignment="Left" Height="23" Margin="176,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133"/>
-        <TextBox x:Name="txtBouwjaar" Text="{Binding Bouwjaar}" HorizontalAlignment="Left" Height="23" Margin="176,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133"/>
         <Button x:Name="btnOpslaan" Content="Opslaan" HorizontalAlignment="Left" Margin="176,263,0,0" VerticalAlignment="Top" Width="120" Click="btnOpslaan_Click"/>
         <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="339,263,0,0" VerticalAlignment="Top" Width="120" Click="btnCancel_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="76,215,0,0" TextWrapping="Wrap" Text="Eigenaar" VerticalAlignment="Top" Height="21" Width="62" FontSize="15"/>
         <ComboBox x:Name="cbEigenaar" ItemsSource="{Binding Eigenaar}" DisplayMemberPath="Naam" SelectedValuePath="Id" SelectedValue="{Binding EigenaarId}" HorizontalAlignment="Left" Margin="176,215,0,0" VerticalAlignment="Top" Width="133"/>
+        <DatePicker x:Name="dpBouwjaar" SelectedDate="{Binding Bouwjaar}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="176,178,0,0" Width="133"/>
     </Grid>
 </Window>

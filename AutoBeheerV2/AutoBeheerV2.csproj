@@ -85,6 +85,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GebruikersWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GebruikerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -102,12 +110,21 @@
     <Compile Include="AutosWindow.xaml.cs">
       <DependentUpon>AutosWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DecimalToTextConverter.cs" />
+    <Compile Include="DecimalValidationRule.cs" />
     <Compile Include="EigenaarController.cs" />
     <Compile Include="EigenaarWindow.xaml.cs">
       <DependentUpon>EigenaarWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="EigenarenWindow.xaml.cs">
       <DependentUpon>EigenarenWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GebruikerController.cs" />
+    <Compile Include="GebruikersWindow.xaml.cs">
+      <DependentUpon>GebruikersWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GebruikerWindow.xaml.cs">
+      <DependentUpon>GebruikerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

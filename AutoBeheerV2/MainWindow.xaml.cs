@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -33,7 +34,10 @@ namespace AutoBeheerV2
             eigenaarController = new EigenaarController();
 
             dgAutos.ItemsSource = autoControlleer.Autos;
-            
+
+            //IPrincipal p = new GenericPrincipal(new GenericIdentity("Finn"), new[] { "User", "Admin" });
+
+            //p.IsInRole("Admin");
         }
 
         private void btnEigenaren_Click(object sender, RoutedEventArgs e)
@@ -57,7 +61,8 @@ namespace AutoBeheerV2
         {
             Auto auto = new Auto();
 
-            Eigenaar eigenaar = new Eigenaar();
+            auto.Bouwjaar = DateTime.Now;
+            auto.Prijs = 0;
            
             AutosWindow autosWindow = new AutosWindow(autoControlleer, eigenaarController, auto);
 
@@ -70,6 +75,13 @@ namespace AutoBeheerV2
             {
                 autoControlleer.VerwijderAuto((Auto)dgAutos.SelectedItem);
             }
+        }
+
+        private void btnGebruiker_Click(object sender, RoutedEventArgs e)
+        {
+            GebruikersWindow gebruikersWindow = new GebruikersWindow();
+
+            gebruikersWindow.ShowDialog();
         }
     }
 }

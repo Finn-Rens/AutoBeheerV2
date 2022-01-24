@@ -53,6 +53,7 @@ namespace AutoBeheerV2
         {
              try 
             {
+
                 if (_auto.Id == 0)
                 {
                     _autoController.NieuwAuto(_auto);
@@ -75,6 +76,37 @@ namespace AutoBeheerV2
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             cbEigenaar.ItemsSource = _eigenaarController.Eigenaars;
+        }
+
+        private int _errors = 0;
+        public bool CanSave
+        {
+            get 
+            { 
+                return _errors == 0; 
+            }
+        }
+
+        private void txtPrijs_Error(object sender, ValidationErrorEventArgs e)
+        {
+            if (e.Action == ValidationErrorEventAction.Added)
+            {
+                _errors++;
+            }
+            else 
+            {
+                _errors--;
+            }
+            
+            if (CanSave)
+            {
+                this.btnOpslaan.IsEnabled = true;
+            }
+            else
+            {
+                this.btnOpslaan.IsEnabled = false;
+            }
+            //e.Handled = true;
         }
     }
 }
