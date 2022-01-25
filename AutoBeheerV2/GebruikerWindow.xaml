@@ -15,6 +15,7 @@
         <CheckBox x:Name="cbAdmin" IsChecked="{Binding Admin}" Content="ja/nee" HorizontalAlignment="Left" Margin="187,124,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnOpslaan" Content="Opslaan" HorizontalAlignment="Left" Margin="187,215,0,0" VerticalAlignment="Top" Width="75" Click="btnOpslaan_Click"/>
         <Button x:Name="btnCancel" Content="Sluiten" HorizontalAlignment="Left" Margin="289,215,0,0" VerticalAlignment="Top" Width="75" Click="btnCancel_Click"/>
+        <PasswordBox x:Name="pbWachtwoord" HorizontalAlignment="Left" Margin="337,161,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
 
     </Grid>
 </Window>

@@ -51,5 +51,13 @@ namespace AutoBeheerV2
                 Gebruiker.Remove(gebruiker);
             }
         }
+
+        public Gebruiker Inloggen(string naam, string wachtwoord)
+        {
+            var gebruiker = db.Gebruikers.Where(g => g.Naam == naam && g.Wachtwoord == wachtwoord).SingleOrDefault();
+
+            return gebruiker;
+        }
+
     }
 }
